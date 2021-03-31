@@ -45,8 +45,7 @@ func main1() {
 }
 
 /*创建匿名结构体*/
-
-func main() {
+func main2() {
 
 	emp := struct {
 		firstName, lastName string
@@ -59,4 +58,75 @@ func main() {
 		salary:    34000,
 	}
 	fmt.Println(emp)
+	/*只是创建了一个emp结构体类型，并没有定义结构体类型*/
+	emp01 := struct {
+		a1 int
+		a2 struct{}
+		a3 string
+		a4 bool
+		a5 float64
+		a6 byte
+		a7 rune
+	}{}
+	fmt.Println(emp01) /*
+
+		输出结果为：
+
+			{0 {}  false 0 0 0}
+	*/
+}
+
+/*访问结构体中字段值*/
+
+type name_01 struct {
+	name string
+	age  int
+	addr string
+}
+
+func main3() {
+
+	/*第一种方式初始化值*/
+	n1 := name_01{"王五", 12, "上海市"}
+	fmt.Printf("名称%s\n", n1.name)
+	fmt.Printf("年龄%d\n", n1.age)
+	fmt.Printf("地址%s\n", n1.addr) /*
+		输出
+		名称王五
+		年龄12
+		地址上海市
+	*/
+
+	/*第二种方式初始化值*/
+
+	var n2 name_01
+	n2.name = "赵四"
+	n2.age = 12
+	n2.addr = "上海市"
+	fmt.Println(n2)
+	/*分开获取每个字段中值*/
+	fmt.Printf("姓名:%s\n年龄%d\n地址%s\n", n2.name, n2.age, n2.addr) /*
+		 输出：
+		 	{赵四 12 上海市}
+
+			姓名:赵四
+			年龄12
+			地址上海市
+	*/
+}
+
+/*结构体指针*/
+
+type info_01 struct {
+	val1 string
+	val2 int
+	val4 float64
+}
+
+func main() {
+	info := &info_01{"北京", 32, 32}
+	fmt.Println((*info).val1, (*info).val2, (*info).val4) /*
+		结果
+			北京 32 32
+	*/
 }

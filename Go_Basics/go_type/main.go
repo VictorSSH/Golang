@@ -2,6 +2,23 @@ package main
 
 import "fmt"
 
+/*
+		go中的数据类型
+
+下面是 Go 支持的基本类型：
+
+	bool
+	数字类型
+		int8, int16, int32, int64, int
+		uint8, uint16, uint32, uint64, uint
+		float32, float64
+		complex64, complex128
+		byte
+		rune
+	string
+
+*/
+
 /*golang中基本数据类型转换*/
 func main() {
 	var i int32 = 100
