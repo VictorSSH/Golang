@@ -29,7 +29,7 @@ var Employee2 struct {
 	age, salary         int16
 }
 
-func main() {
+func main1() {
 
 	emp1 := Employee{
 		firstName: "张三",
@@ -42,4 +42,21 @@ func main() {
 	emp2 := Employee{"张三", "文员", 22} //这种方式赋值，需要改结构字段顺序一致，才行
 	fmt.Println("emp1:", emp1)
 	fmt.Println("emp2", emp2)
+}
+
+/*创建匿名结构体*/
+
+func main() {
+
+	emp := struct {
+		firstName, lastName string
+		age, salary         int
+		//注意在创建匿名结构时，字段类型后面不需要加分号，而在非匿名结构体时，需要在字段类型后面加分号
+	}{
+		firstName: "李四",
+		lastName:  "司机",
+		age:       23,
+		salary:    34000,
+	}
+	fmt.Println(emp)
 }
