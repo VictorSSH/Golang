@@ -56,8 +56,6 @@ func main() {
 		fmt.Println(i, arrname4[i])
 	} /*
 		输出
-
-
 		0 shanghai
 		1 beijing
 		2 lanzhou
