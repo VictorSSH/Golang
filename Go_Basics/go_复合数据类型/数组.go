@@ -47,11 +47,27 @@ func main() {
 	fmt.Println(arrname1, arrname2, arrname3, arrname4)
 
 	//输出指定下标索引位置元素
-
 	fmt.Printf("数组元素值:%s\n", arrname4[1])
 
+	//循环方式进行数组元素遍历
+
+	fmt.Println("----------------------循环方式输出遍历所有数组元素-----------------")
+	for i := 0; i < len(arrname4); i++ {
+		fmt.Println(i, arrname4[i])
+	} /*
+		输出
+
+
+		0 shanghai
+		1 beijing
+		2 lanzhou
+		3 yunna
+		4 hebei
+
+	*/
 }
 
+/*循环方式进行数组初始化和遍历元素值*/
 func main1() {
 
 	var arr1 [5]int
