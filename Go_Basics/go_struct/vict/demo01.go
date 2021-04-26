@@ -1,4 +1,4 @@
-package main
+package vict
 
 import "fmt"
 
@@ -29,7 +29,7 @@ var Employee2 struct {
 	age, salary         int16
 }
 
-func main1() {
+func Str_u() {
 
 	emp1 := Employee{
 		firstName: "张三",
@@ -123,7 +123,7 @@ type info_01 struct {
 	val4 float64
 }
 
-func main() {
+func main4() {
 	info := &info_01{"北京", 32, 32}
 	fmt.Println((*info).val1, (*info).val2, (*info).val4) /*
 		结果
