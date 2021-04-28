@@ -1,4 +1,4 @@
-package main
+package 闭包
 
 import "fmt"
 
@@ -31,7 +31,7 @@ func showInf(name string, age int, salay int32) {
 }
 
 /*函数调用*/
-func main() {
+func main1() {
 	//函数调用
 	func_01(12, 43)
 	intSum(2, 3)

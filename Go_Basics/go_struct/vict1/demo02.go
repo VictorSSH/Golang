@@ -17,7 +17,7 @@ type person struct {
 	info struct{}
 }
 
-func main1() {
+func maain1() {
 	var p1 = person{name: "北京", age: 12, city: "上海"}
 	fmt.Println(p1)
 }

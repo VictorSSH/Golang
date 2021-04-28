@@ -26,7 +26,7 @@ func showInfo() {
 //添加书籍函数
 func addBooks() {}
 
-func main() {
+func main2() {
 	//使用for循环进行循环输出
 	for {
 		showInfo()
