@@ -1,6 +1,7 @@
 package main
 
 import (
+	i "./init"
 	u "./utils"
 	f "fmt"
 )
@@ -81,4 +82,53 @@ func main() {
 	f.Println("----------------------------")
 	sum1, _, fa := u.Get_sum_sub(NumberOny, NumberOny)
 	f.Println(sum1, fa)
+	f.Println("----------------------------")
+	res := u.Billion(3)
+	f.Println(res)
+	f.Println(u.Billion(4))
+	f.Println(u.Billion(6))
+	f.Println(u.Billion(7))
+	f.Println("----------------------------")
+	female := u.Female(3)
+	f.Println(female)
+	f.Println("----------------------------")
+	a := 10
+	b := 20
+	swap1, swap2 := u.Swap(&a, &b)
+	f.Printf("swap1=%v\nswap2=%v\n", *swap1, *swap2)
+	f.Println("----------------------------")
+	f.Println(i.Id, i.Name, i.Info)
+	id := i.Id
+	name := i.Name
+	info := i.Info
+	id = 34
+	name = "上海"
+	info = "浦东新区"
+	f.Println(id, name, info)
+	f.Println("----------------------------")
+	sub := i.FunallSum(1, 2)
+	f.Println(sub)
+	f.Println("----------闭包的实现-----------")
+
+	num1 := 20
+	i.Test1(&num1)
+	f.Println("----------指针-----------")
+	num2 := 30
+	num3 := 10
+	f.Println(i.Test2(&num3, &num2))
+
+	/*
+		&符号是指针取地址
+		*符号是指针去地址值
+	*/
+	f.Println("----&符号取地址----")
+	var i = 10
+	f.Println(&i)
+	f.Printf("i的；类型是: %T\n", i)
+	f.Println("----*符号取地址值-----")
+	var ptr *int
+	f.Println("指针类型变量初始化值为 nil ", ptr)
+	ptr = &i
+	f.Printf("prt类型是%T\n", ptr)
+	f.Printf("ptr通过*号来获取i变量的值: %d", *ptr)
 }

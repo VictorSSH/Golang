@@ -1,12 +1,14 @@
 package main
 
-import "fmt"
+import (
+	f "fmt"
+)
 
-/*一个指针变量可以指向任何一个值的内存地址 它指向那个值的内存地址，在 32 位机器上占用 4 个字节，在 64 位机器上占用 8 个字节，并且与它所指向的值的大小无关。
+/*
+
+	一个指针变量可以指向任何一个值的内存地址 它指向那个值的内存地址，在 32 位机器上占用 4 个字节，在 64 位机器上占用 8 个字节，并且与它所指向的值的大小无关。
 当然，可以声明指针指向任何类型的值来表明它的原始性或结构性；你可以在指针类型前面加上 * 号（前缀）来获取指针所指向的内容，这里的 * 号是一个类型更改器。
 使用一个指针引用一个值被称为间接引用。
-
-
 	Go 语言的取地址符是 &，放到一个变量前使用就会返回相应变量的内存地址。
 	在指针类型前面加上 * 号（前缀）来获取指针所指向的内容，这里的 * 号是一个类型更改器。使用一个指针引用一个值被称为间接引用
 
@@ -18,38 +20,69 @@ prt 定义为一个指针类型，标识指向存储int类型值的指针，prt�
 	符号 * 可以放在一个指针前，如 *intP，那么它将得到这个指针指向地址上所存储的值；这被称为反引用（或者内容或者间接引用）操作符；
 	另一种说法是指针转移
 
-一个指针变量可以指向任何一个值的内存地址 它指向那个值的内存地址，在 32 位机器上占用 4 个字节，在 64 位机器上占用 8 个字节，
-		并且与它所指向的值的大小无关。当然，可以声明指针指向任何类型的值来表明它的原始性或结构性；你可以在指针类型前面加上 * 号（前缀）
-		来获取指针所指向的内容，这里的 * 号是一个类型更改器。使用一个指针引用一个值被称为间接引用。
-
 */
 
-func main() {
+func main0() {
 	a := 100
 	/*声明指针类型*/
 	var prt *int
 	/*初始化指针类型值为变量 a*/
 	prt = &a
-	fmt.Println(prt)
-	fmt.Println(*prt)
+	f.Println(prt)
+	f.Println(*prt)
 
 	/*当一个指针被定义后没有分配到任何变量时，它的值为 nil。*/
 	var prt1 *string
-	fmt.Println(prt1)
+	f.Println(prt1)
 	v := 20
 	ptr := &v
-	fmt.Println(*ptr)
+	f.Println(*ptr)
 
 	ptr1 := &prt1
-	fmt.Println(ptr1)
-}
-func main2() {
+	f.Println(ptr1)
 
-	prt := 5
-	fmt.Printf("An integer: %d,its location in memory: %p\n", prt, &prt) //（指针的格式化标识符为 %p）
-	var intp *int
-	intp = &prt
-	fmt.Println(intp, *intp)
-	fmt.Printf("类型为: %T", intp)
+}
+
+func main3() {
+	var i int
+	f.Println("----------i变量--------------")
+	f.Printf("i的数据类型= %T\ni的初始值为= %v\ni的内存地址= %v\n", i, i, &i)
+	f.Println("----------ptr变量---------------")
+	var ptr *int
+	f.Printf("ptr的数据类型= %T\nptr的初始值为= %v\nptr的内存地址= %v\n", ptr, ptr, &ptr)
+
+	f.Println("----------ptr引用i的地址--------")
+	ptr = &i
+	f.Printf("i的内存地址名称= %v\nptr的内存地址名称= %v\n", &i, &ptr)
+	f.Printf("ptr中存储的是i变量的地址名称:\n &i= %v\nptr= %v\n", &i, ptr)
+	f.Println("--------总结-----------")
+	f.Printf("所以关系是 ptr: %v == &i: %v\n", ptr, &i)
+
+}
+
+var (
+	a int
+	b int
+	c *int
+)
+
+/*通过init函数来初始化*/
+func init() {
+	a = 10
+	b = 10
+}
+func main() {
+
+	/*通过获取指针指向地址值来修改原值*/
+
+	age := 20
+
+	var Newage *int //定义指针类型变量 Newage
+	Newage = &age   // 把age的内存地址赋值给指针类型变量Newage
+	*Newage = 40    // 通过获取
+	f.Printf("*Newage的地址值为：%v,Newage的地址为：%v\n", &Newage, Newage)
+	f.Printf("age的地址为: %v\n,age的地址值为: %v\n", &age, age)
+
+	/*计算a+b的和*/
 
 }

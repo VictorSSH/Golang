@@ -57,3 +57,34 @@ func Get_sum_sub(val1, val2 int) (int, int, int) {
 	dha := Getsum(2, 2)
 	return sum, sub, dha
 }
+
+/*使用函数输出对应的金字塔*/
+func PrintPaly(totalevel int) {
+	//var totalevel int = 20
+	//i表示层数
+	for i := 1; i <= totalevel; i++ {
+		//输出空格
+		for k := 1; k <= totalevel-i; k++ {
+			f.Print(" ")
+		}
+		//j标识每层打印多少*
+		for j := 1; j <= 2*i-1; j++ {
+			if j == 1 || j == 2*i-1 || i == totalevel {
+				f.Print("*")
+			} else {
+				f.Print(" ")
+			}
+		}
+		f.Println()
+	}
+}
+
+/*使用函数实现九九乘法表*/
+func PrintMuulti(num int) {
+	for i := 1; i <= num; i++ {
+		for j := 1; j <= i; j++ {
+			f.Printf("%v * %v = %v \t", j, i, j*i)
+		}
+		f.Println()
+	}
+}
